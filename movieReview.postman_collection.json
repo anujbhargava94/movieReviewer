@@ -1,0 +1,251 @@
+{
+	"variables": [],
+	"info": {
+		"name": "FlipkartTest",
+		"_postman_id": "fbb81a47-369e-9144-3831-853422620044",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/home?name=Anuj",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"home"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Anuj",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "name",
+						"value": "Anuj",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\":1,\n\t\"gender\":\"M\",\n\t\"age\":26\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/topMovieYear?name=2001&type=VIEWER&top=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topMovieYear"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "2001",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "type",
+							"value": "VIEWER",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "top",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "avg movie year",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/operation/avgMovieYear?year=2010",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operation",
+						"avgMovieYear"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2010",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "localhost:8080/operation/avgMovieYear?year=2010"
+			},
+			"response": []
+		},
+		{
+			"name": "add movie",
+			"request": {
+				"url": "localhost:8080/movie/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"id\":5,\n\t\"name\":\"Movie1\",\n\t\"year\":2012,\n\t\"genre\":\"G2\",\n\t\"score\":4\n}"
+				},
+				"description": "localhost:8080/movie/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get top movie by year",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/topMovieYear?name=2001&type=VIEWER&top=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topMovieYear"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "2001",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "type",
+							"value": "VIEWER",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "top",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get top movie by genre",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/topMovieYear?name=2001&type=VIEWER&top=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topMovieYear"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "2001",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "type",
+							"value": "VIEWER",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "top",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add review",
+			"request": {
+				"url": "localhost:8080/review/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"userId\":1,\n\t\"movieId\":2,\n\t\"rating\":10\n}"
+				},
+				"description": "localhost:8080/review/add"
+			},
+			"response": []
+		}
+	]
+}
