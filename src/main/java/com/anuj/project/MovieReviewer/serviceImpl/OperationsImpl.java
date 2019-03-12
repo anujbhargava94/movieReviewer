@@ -6,10 +6,10 @@ import java.util.TreeSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anuj.project.MovieReviewer.DAOImpl.MovieDao;
+import com.anuj.project.MovieReviewer.DAOImpl.MovieDaoImpl;
 import com.anuj.project.MovieReviewer.DAOImpl.ResultDao;
-import com.anuj.project.MovieReviewer.DAOImpl.ReviewsDao;
-import com.anuj.project.MovieReviewer.DAOImpl.UserDao;
+import com.anuj.project.MovieReviewer.DAOImpl.ReviewsDaoImpl;
+import com.anuj.project.MovieReviewer.DAOImpl.UserDaoImpl;
 import com.anuj.project.MovieReviewer.model.Movie;
 import com.anuj.project.MovieReviewer.model.Review;
 import com.anuj.project.MovieReviewer.model.User;
@@ -23,13 +23,13 @@ public class OperationsImpl implements Operations {
 	ResultDao resultDao;
 
 	@Autowired
-	MovieDao movieDao;
+	MovieDaoImpl movieDao;
 
 	@Autowired
-	ReviewsDao reviewDao;
+	ReviewsDaoImpl reviewDao;
 
 	@Autowired
-	UserDao userDao;
+	UserDaoImpl userDao;
 
 	@Override
 	public User getUser(int userId) {
@@ -116,9 +116,10 @@ public class OperationsImpl implements Operations {
 		}
 
 		if (result.size() > top) {
-			while (top > 0) {
-				result.pollFirst();
-				top--;
+			int count = result.size() - top;
+			while (count > 0) {
+				result.pollLast();
+				count--;
 			}
 		}
 
@@ -150,9 +151,10 @@ public class OperationsImpl implements Operations {
 		}
 
 		if (result.size() > top) {
-			while (top > 0) {
-				result.pollFirst();
-				top--;
+			int count = result.size() - top;
+			while (count > 0) {
+				result.pollLast();
+				count--;
 			}
 		}
 
@@ -183,9 +185,10 @@ public class OperationsImpl implements Operations {
 			}
 		}
 		if (result.size() > top) {
-			while (top > 0) {
-				result.pollFirst();
-				top--;
+			int count = result.size() - top;
+			while (count > 0) {
+				result.pollLast();
+				count--;
 			}
 		}
 		return resultDao;
@@ -215,9 +218,10 @@ public class OperationsImpl implements Operations {
 			}
 		}
 		if (result.size() > top) {
-			while (top > 0) {
-				result.pollFirst();
-				top--;
+			int count = result.size() - top;
+			while (count > 0) {
+				result.pollLast();
+				count--;
 			}
 		}
 		return resultDao;

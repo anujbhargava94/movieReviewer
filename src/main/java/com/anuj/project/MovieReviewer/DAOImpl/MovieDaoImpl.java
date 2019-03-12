@@ -5,13 +5,14 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.anuj.project.MovieReviewer.DAO.MovieDao;
 import com.anuj.project.MovieReviewer.model.Movie;
 
 @Service
-public class MovieDao {
+public class MovieDaoImpl implements MovieDao {
 	private Map<Integer, Movie> movies;
 
-	public MovieDao() {
+	public MovieDaoImpl() {
 		movies = new HashMap<>();
 
 		Movie movie1 = new Movie(1, "A", 2001, "G1", 5);
@@ -22,14 +23,17 @@ public class MovieDao {
 		movies.put(movie3.getId(), movie3);
 	}
 
+	@Override
 	public Movie getMovie(int id) {
 		return movies.get(id);
 	}
 
+	@Override
 	public Map<Integer, Movie> getAllMovie() {
 		return movies;
 	}
 
+	@Override
 	public void addMovie(Movie movie) throws Exception {
 		if (movie.getId() > 0 && !movies.containsKey(movie.getId())) {
 			movies.put(movie.getId(), movie);

@@ -1,5 +1,8 @@
 package com.anuj.project.MovieReviewer.DAO;
 
-public class UserDao {
+import com.anuj.project.MovieReviewer.model.User;
+
+public interface UserDao {
+	public User getUser(int userId);
 
 }

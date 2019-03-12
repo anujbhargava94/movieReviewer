@@ -6,22 +6,23 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.anuj.project.MovieReviewer.DAO.ReviewsDao;
 import com.anuj.project.MovieReviewer.model.Movie;
 import com.anuj.project.MovieReviewer.model.Review;
 import com.anuj.project.MovieReviewer.model.User;
 import com.anuj.project.MovieReviewer.model.User.Reviewer;
 
 @Service
-public class ReviewsDao {
+public class ReviewsDaoImpl implements ReviewsDao {
 	public Map<String, Review> reviews;
 
 	@Autowired
-	MovieDao movies;
+	MovieDaoImpl movies;
 
 	@Autowired
-	UserDao users;
+	UserDaoImpl users;
 
-	public ReviewsDao() {
+	public ReviewsDaoImpl() {
 		reviews = new HashMap<>();
 
 		Review review1 = new Review("1_1", 1, 1, 5);
@@ -32,6 +33,7 @@ public class ReviewsDao {
 		reviews.put(review3.getId(), review3);
 	}
 
+	@Override
 	public void addReview(Review review) throws Exception {
 
 		Movie movie = movies.getMovie(review.getMovieId());
@@ -60,6 +62,7 @@ public class ReviewsDao {
 		}
 	}
 
+	@Override
 	public Map<String, Review> getAllReviews() {
 		return reviews;
 	}

@@ -5,15 +5,16 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.anuj.project.MovieReviewer.DAO.UserDao;
 import com.anuj.project.MovieReviewer.model.User;
 import com.anuj.project.MovieReviewer.model.User.Reviewer;
 
 @Service
-public class UserDao {
+public class UserDaoImpl implements UserDao {
 
 	public Map<Integer, User> users;
 
-	public UserDao() {
+	public UserDaoImpl() {
 		users = new HashMap<>();
 
 		User user1 = new User(1, "U1", Reviewer.VIEWER);
@@ -24,6 +25,7 @@ public class UserDao {
 		users.put(user3.getId(), user3);
 	}
 
+	@Override
 	public User getUser(int userId) {
 		// TODO Auto-generated method stub
 		return users.get(userId);
